@@ -12,11 +12,20 @@ This repository holds two Acoustic-to-Articulatory Speech Inversion (SI) systems
 Check the two papers above to refer to more information on the types of TVs estimated by each model. 
 
 ## Installation Guide
-Code has been developed with Python 3.7. We also use a number of off the shelf libraries which are listed in [requirements.txt](requirements.txt). They can be installed with
+Code has been developed with Python 3.7 in Conda. We also use a number of off the shelf libraries which are listed in [requirements.txt](requirements.txt). 
 
+1. Installation method 1 : Installing main libraries from original sources to set up the enviormnet
+```bash
+$ pip install speechbrain
+$ pip install librosa
+$ pip install transformers
+```
+2. Installation method 2 : Installing inidividual libraries from the [requirements.txt](requirements.txt) file
 ```bash
 $ pip install -r requirements.txt
 ```
+
+We recommed following method 1 since it will automatically take care of compatible libraries incase there have been new realase versions of respective libraries
 
 ## Run SI tool pipeline
 

@@ -1,0 +1,10 @@
+Dataset:original_mfcc
+Normalization:utterance-wise
+Epochs:500
+Patience:5
+Batch size:64
+Corr_Average:[0.88923308 0.65010029 0.87926367 0.76110277 0.72874739 0.92592693]
+Corr_Average_all:0.8057290189061012
+Corr_Average_6TVs:0.8057290189061012
+MSE:0.021174852
+MAE:0.10714633762836456

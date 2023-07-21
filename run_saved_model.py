@@ -1,38 +1,23 @@
-import warnings
-warnings.filterwarnings("ignore")
+"""
+Author : Yashish Maduwantha
 
-# import numpy as np
-# import os
-# import tensorflow as tf
-# from tensorflow.keras.losses import MeanSquaredError, MeanAbsoluteError
-# from tensorflow.keras.layers import Bidirectional, UpSampling1D, LSTM, GRU, Dense, Input, Dropout, Embedding, Masking, TimeDistributed, BatchNormalization, ReLU
-from tensorflow.keras.models import Model, load_model
+Run the pretrained SI system by feeding the extracted SSL features to estimate and save the TVs
+
+"""
+
+import numpy as np
 from tensorflow.keras.losses import MeanSquaredError, MeanAbsoluteError
 from tensorflow.keras.layers import Bidirectional, LSTM, Dense, Input, Dropout, Embedding, Masking, TimeDistributed, BatchNormalization, ReLU
 from tensorflow.keras.models import Model, load_model
 from tensorflow.keras.losses import binary_crossentropy, categorical_crossentropy
 from tensorflow.keras.optimizers import Adam
-# from tensorflow.keras.losses import binary_crossentropy, categorical_crossentropy
-# from tensorflow.keras.optimizers import Adam
-# from tensorflow.keras.activations import tanh
-# from tensorflow.keras.callbacks import EarlyStopping, LearningRateScheduler
-# from Attention import Attention
-from KalmanSmoother import *
+from KalmanSmoother import kalmansmooth
 from scipy.io import savemat
-from feature_extract import feature_extract
+import feature_extracter
 
 import os
 import datetime
 from datetime import date
-# from sklearn.preprocessing import StandardScaler
-# from tensorflow_addons.optimizers import NovoGrad
-# from tensorflow.keras.utils import to_categorical
-# from scipy.stats import pearsonr
-
-# from utils import correlation_coefficient_loss
-
-# from matplotlib import pyplot
-# pyplot.switch_backend('agg')
 
 # fix random seed for reproducibility
 seed = 7
@@ -49,7 +34,7 @@ def run_model(input_features, file_name, audio_len, SI_model, out_format='mat'):
     fs = 16000
     # Load saved model
     if SI_model == 'xrmb':
-        saved_model = 'saved_models/best_XRMB_model/GRU_model_XRMB_hubert_utterance-wise_original_mfcc_2023-07-09_H_21/net/BLSTM_model.h5'
+        saved_model = 'saved_models/best_XRMB_model/GRU_model_XRMB_hubert_utterance-wise_original_mfcc_2023-07-21_H_14/net/BLSTM_model.h5'
     elif SI_model == 'hprc':
         saved_model = 'saved_models/best_hprc_model/multi_GRU_model_EMA_IEEE_hubert_utterance-wise_original_mfcc_2023-07-09_H_2/net/GRU_model_multi_task.h5'
 
@@ -90,7 +75,7 @@ def run_model(input_features, file_name, audio_len, SI_model, out_format='mat'):
 
 
 if __name__ == '__main__':
-    f_extractor = feature_extract('spk1_snt1.wav', 'hubert')
+    f_extractor = feature_extracter.feature_extract('test_audio/spk1_snt1.wav', 'hubert')
     data, segs, aud_len = f_extractor.run_extraction()
 
     run_model(data, 'spk1_snt1.wav', aud_len, 'hprc', out_format='mat')

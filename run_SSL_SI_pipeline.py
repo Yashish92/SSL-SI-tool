@@ -10,7 +10,7 @@ Runs the SSL_SI models on a given .wav audio file
 import os
 from run_saved_model import run_model
 import argparse
-from feature_extract import feature_extract
+from feature_extracter import feature_extract
 
 def get_parser():
     """
@@ -30,26 +30,26 @@ def get_parser():
     return parser
 
 def main():
-    # use arg parser
     args = get_parser().parse_args()
 
     SI_model = args.model
     feats = args.feats
     audio_dir = args.path
     out_format = args.out_format
+    
+    f_extractor = feature_extract(feats)  # create feature extractor instance
 
     for file in os.listdir(audio_dir):
         if file.endswith('.wav'):
+            # print('audio found')
             audio_file = audio_dir + '/' + file
             file_name = file[:-4]
             # Run feature extractor script to extract SSL features
-            f_extractor = feature_extract(audio_file, feats)  # create feature extractor instance
-            feature_data, no_segs, audio_len = f_extractor.run_extraction()
-
+            feature_data, no_segs, audio_len = f_extractor.run_extraction(audio_file)
+            # print('SSL extraction done')
             # Load and run saved SSL_SI model and generate final TV outputs
             run_model(feature_data, file_name, audio_len, SI_model, out_format=out_format)
-
-            print("TVs extracted for " + file)
+            # print("TVs extracted for " + file)
 
     print("TV Extraction Completed")
 
