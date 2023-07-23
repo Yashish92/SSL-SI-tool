@@ -4,12 +4,12 @@
 * Email: yashish@terpmail.umd.edu
 
 ## Description
-This repository holds two Acoustic-to-Articulatory Speech Inversion (SI) systems trained on the Wisconsin XRMB dataset and the HPRC dataset respectively. The model architecture and training are based on the papers [Audio Data Augmentation for Acoustic-to-articulatory Speech Inversion](https://arxiv.org/abs/2205.13086) and ["Acoustic-to-articulatory Speech Inversion with Multi-task Learning"](https://www.isca-speech.org/archive/pdfs/interspeech_2022/siriwardena22_interspeech.pdf). The pretrained SI systems in this repository have been trained with self-supervised based features (HuBERT and wavLM) as acoustic inputs compared to the 13 MFCCs used in the papers above.  
+The SSL-SI-tool implements the pipeline which can be directly used to estimate the articulatory features (6 TVs or 9 TVs + source features) given the speech utterance (.wav files).
+
+This repository holds two Acoustic-to-Articulatory Speech Inversion (SI) systems trained on the Wisconsin XRMB dataset and the HPRC dataset respectively. The model architecture and training are based on the papers [Audio Data Augmentation for Acoustic-to-articulatory Speech Inversion](https://arxiv.org/abs/2205.13086) and ["Acoustic-to-articulatory Speech Inversion with Multi-task Learning"](https://www.isca-speech.org/archive/pdfs/interspeech_2022/siriwardena22_interspeech.pdf). The pretrained SI systems in this repository have been trained with self-supervised based features (HuBERT and wavLM) as acoustic inputs compared to the 13 MFCCs used in the papers above. Check the two papers above to refer to more information on the types of TVs estimated by each model. 
 
 1. Model trained on XRMB dataset : Estimates 6 TVs
 2. Model trained on HPRC dataset : Trained with a MTL framework and estimates 9 TVs + Source features (Aperiodicity, Periodicity and Pitch)
-
-Check the two papers above to refer to more information on the types of TVs estimated by each model. 
 
 ## Installation Guide
 The SI systems were trained in a conda environment with Python 3.8.13 and tensorflow==2.10.0. The HuBERT pretrained models used to extract acoustic features have been trained in PyTorch.
