@@ -12,20 +12,26 @@ This repository holds two Acoustic-to-Articulatory Speech Inversion (SI) systems
 Check the two papers above to refer to more information on the types of TVs estimated by each model. 
 
 ## Installation Guide
-Code has been developed with Python 3.7 in Conda. We also use a number of off the shelf libraries which are listed in [requirements.txt](requirements.txt). 
+The SI systems were trained in a conda environment with Python 3.8.13 and tensorflow==2.10.0. The HuBERT pretrained models used to extract acoustic features have been trained in PyTorch.
 
-1. Installation method 1 : Installing main libraries from original sources to set up the enviormnet
+1. Installation method 1:
+First install tensorflow and we recommend doing that in Conda following the steps [here](https://www.tensorflow.org/install/pip).
+We also use a number of off the shelf libraries which are listed in [requirements.txt](requirements.txt). Follow the steps below to install them.
+
 ```bash
 $ pip install speechbrain
 $ pip install librosa
 $ pip install transformers
 ```
-2. Installation method 2 : Installing inidividual libraries from the [requirements.txt](requirements.txt) file
+
+2. Installation method 2 : Installing inidividual libraries from the [requirements.txt](requirements.txt) file.
 ```bash
 $ pip install -r requirements.txt
 ```
 
-We recommed following method 1 since it will automatically take care of compatible libraries incase there have been new realase versions of respective libraries
+We recommed following method 1 since it will automatically take care of compatible libraries incase there have been new realase versions of respective libraries.
+
+Note : If you run the SI system on GPUs to extract TVs (recommended for lareger datasets), make sure the cuDNN versions for pyTorch (installed by speechbrain) and the one installed with Tensorflow are compatible.
 
 ## Run SI tool pipeline
 
