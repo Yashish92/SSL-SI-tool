@@ -15,7 +15,9 @@ Check the two papers above to refer to more information on the types of TVs esti
 The SI systems were trained in a conda environment with Python 3.8.13 and tensorflow==2.10.0. The HuBERT pretrained models used to extract acoustic features have been trained in PyTorch.
 
 1. Installation method 1:
+
 First install tensorflow and we recommend doing that in Conda following the steps [here](https://www.tensorflow.org/install/pip).
+
 We also use a number of off the shelf libraries which are listed in [requirements.txt](requirements.txt). Follow the steps below to install them.
 
 ```bash
