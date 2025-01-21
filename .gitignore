@@ -7,6 +7,7 @@ __pycache__/
 *.so
 
 speechbrain
+.locks
 
 # Distribution / packaging
 .Python
