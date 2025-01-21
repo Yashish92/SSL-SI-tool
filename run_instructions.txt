@@ -1,0 +1,14 @@
+
+## only create the ssl_env if not created before
+conda create -n ssl_env python=3.8
+
+conda activate ssl_env
+
+pip install tensorflow-gpu==2.10.0
+pip install speechbrain
+pip install librosa
+pip install transformers
+
+python run_SSL_SI_pipeline.py -m xrmb -f hubert -i test_audio/ -o 'mat'
+
+

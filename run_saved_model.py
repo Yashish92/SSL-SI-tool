@@ -7,7 +7,7 @@ Run the pretrained SI system by feeding the extracted SSL features to estimate a
 
 import numpy as np
 from tensorflow.keras.losses import MeanSquaredError, MeanAbsoluteError
-from tensorflow.keras.layers import Bidirectional, LSTM, Dense, Input, Dropout, Embedding, Masking, TimeDistributed, BatchNormalization, ReLU
+from tensorflow.keras.layers import Bidirectional, LSTM, Dense, Input, Dropout, Embedding, Masking, TimeDistributed, BatchNormalization, ReLU, GRU
 from tensorflow.keras.models import Model, load_model
 from tensorflow.keras.losses import binary_crossentropy, categorical_crossentropy
 from tensorflow.keras.optimizers import Adam

@@ -7,7 +7,9 @@ This performs acoustic feature extraction from the specified pretrained SSL mode
 
 import librosa
 import numpy as np
-from speechbrain.lobes.models.huggingface_wav2vec import HuggingFaceWav2Vec2
+# from speechbrain.lobes.models.huggingface_wav2vec import HuggingFaceWav2Vec2
+from speechbrain.lobes.models.huggingface_transformers.hubert import HuBERT
+from speechbrain.lobes.models.huggingface_transformers.wavlm import WavLM
 import torch
 
 class feature_extract:
@@ -17,10 +19,10 @@ class feature_extract:
 
         if ssl_model == 'hubert':
             self.model_hub_hubert = "facebook/hubert-large-ll60k"
-            self.model_extractor = HuggingFaceWav2Vec2(self.model_hub_hubert, save_path='')
+            self.model_extractor = HuBERT(self.model_hub_hubert, save_path='')
         elif ssl_model == 'wavlm':
             self.model_hub_wavlm = "microsoft/wavlm-large"
-            self.model_extractor = HuggingFaceWav2Vec2(self.model_hub_wavlm, save_path='')
+            self.model_extractor = WavLM(self.model_hub_wavlm, save_path='')
 
     def run_extraction(self, wave_file):
         source_ar, sr = librosa.load(wave_file, sr=16000)
