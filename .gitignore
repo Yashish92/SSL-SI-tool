@@ -131,3 +131,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+models--facebook--hubert-large-ll60k
