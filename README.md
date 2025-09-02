@@ -51,8 +51,8 @@ to run the SI pipeline which performs the following 'steps',
 
 The tract variables can be saved as either numpy files or mat files for convenience. The TVs and source features are saved in the following order in the output files.
 
-6TVs with XRMB : LA, LP, TBCL, TBCD, TTCL, TTCD
-12 TVs with HPRC : LA, LP, TBCL, TBCD, TTCL, TTCD, JA, TMCL, TMCD, Periodicity, Aperiodicity, Pitch (normalized to 0 to 1 range)
+1. 6TVs with XRMB : LA, LP, TBCL, TBCD, TTCL, TTCD
+2. 12 TVs with HPRC : LA, LP, TBCL, TBCD, TTCL, TTCD, JA, TMCL, TMCD, Periodicity, Aperiodicity, Pitch (normalized to 0 to 1 range)
 
 ### Python command line usage:
 ```bash
