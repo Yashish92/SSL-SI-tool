@@ -47,6 +47,13 @@ to run the SI pipeline which performs the following 'steps',
 2. Load the pre-trained SSL-SI model and evaluate on the extracted SSL feature data generated in step 1 
 3. Save the predicted Tract Variables (TVs)
 
+## Tract Variables Output
+
+The tract variables can be saved as either numpy files or mat files for convenience. The TVs and source features are saved in the following order in the output files.
+
+6TVs with XRMB : LA, LP, TBCL, TBCD, TTCL, TTCD
+12 TVs with HPRC : LA, LP, TBCL, TBCD, TTCL, TTCD, JA, TMCL, TMCD, Periodicity, Aperiodicity, Pitch (normalized to 0 to 1 range)
+
 ### Python command line usage:
 ```bash
 usage: run_SSL_SI_pipeline.py [-h] [-m MODEL] [-f FEATS] [-i PATH]

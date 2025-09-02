@@ -36,7 +36,7 @@ def run_model(input_features, file_name, audio_len, SI_model, out_format='mat'):
     if SI_model == 'xrmb':
         saved_model = 'saved_models/best_XRMB_model/GRU_model_XRMB_hubert_utterance-wise_original_mfcc_2023-07-21_H_14/net/BLSTM_model.h5'
     elif SI_model == 'hprc':
-        saved_model = 'saved_models/best_hprc_model/multi_GRU_model_EMA_IEEE_hubert_utterance-wise_original_mfcc_2023-07-09_H_2/net/GRU_model_multi_task.h5'
+        saved_model = 'saved_models/best_hprc_model/multi_GRU_model_EMA_IEEE_hubert_utterance-wise_original_mfcc_2023-07-21_H_15/net/GRU_model_multi_task.h5'
 
     loaded_model = load_model(saved_model)
 
