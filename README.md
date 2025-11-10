@@ -3,6 +3,10 @@
 * Author: Yashish Maduwantha
 * Email: yashish@terpmail.umd.edu
 
+# New Update to the Repo
+
+The two saved checkpoints in this repo have been removed. Please reach out to Yashish (yashish@terpmail.umd.edu) if you are planning to use this repo for Research purposes. 
+
 ## Description
 The SSL-SI-tool implements the pipeline which can be directly used to estimate the articulatory features (6 TVs or 9 TVs + source features) given the speech utterance (.wav files).
 
